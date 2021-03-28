@@ -7,7 +7,7 @@ from openke.data import TrainDataLoader, TestDataLoader
 
 # dataloader for training
 train_dataloader = TrainDataLoader(
-	in_path = "./data/FB15k-237-betae/",
+	in_path = "./data/NELL-betae/",
 	nbatches = 100,
 	threads = 8, 
 	sampling_mode = "normal", 
@@ -17,7 +17,7 @@ train_dataloader = TrainDataLoader(
 	neg_rel = 0)
 
 # dataloader for test
-test_dataloader = TestDataLoader("./data/FB15k-237-betae/", "link")
+test_dataloader = TestDataLoader("./data/NELL-betae/", "link")
 
 # define the model
 transe = TransE(
@@ -38,11 +38,11 @@ model = NegativeSampling(
 # train the model
 trainer = Trainer(model = model, data_loader = train_dataloader, train_times = 3000, alpha = 1.0, use_gpu = True)
 trainer.run()
-transe.save_checkpoint('./checkpoint/transe_batae_fb237.ckpt')
+transe.save_checkpoint('./checkpoint/transe_batae_nell.ckpt')
 
 print(transe.ent_embeddings)
 print(transe.rel_embeddings)
 # test the model
-transe.load_checkpoint('./checkpoint/transe_batae_fb237.ckpt')
+transe.load_checkpoint('./checkpoint/transe_batae_nell.ckpt')
 tester = Tester(model = transe, data_loader = test_dataloader, use_gpu = True)
 tester.run_link_prediction(type_constrain = False)
