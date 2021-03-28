@@ -15,7 +15,7 @@ for data_name in data_names:
     num_rel = len(id2rel)
     fout.write(str(num_rel) + "\n")
     for i in range(num_rel):
-        fout.write(id2rel[i] + " " + str(i) + "\n")
+        fout.write(id2rel[i] + "\t" + str(i) + "\n")
 
     # read the id2rel.pkl and write to relation2id.txt
     fin = open(path + "id2ent.pkl", "rb")
@@ -26,7 +26,7 @@ for data_name in data_names:
     num_ent = len(id2ent)
     fout.write(str(num_ent) + "\n")
     for i in range(num_ent):
-        fout.write(id2ent[i] + " " + str(i) + "\n")
+        fout.write(id2ent[i] + "\t" + str(i) + "\n")
 
 
 
