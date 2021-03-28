@@ -10,7 +10,10 @@ test = open("test2id.txt", "r")
 tot = (int)(triple.readline())
 for i in range(tot):
 	content = triple.readline()
-	h,t,r = content.strip().split()
+	try:
+		h,t,r = content.strip().split()
+	except:
+		continue
 	if not (h,r) in lef:
 		lef[(h,r)] = []
 	if not (r,t) in rig:
@@ -27,7 +30,10 @@ for i in range(tot):
 tot = (int)(valid.readline())
 for i in range(tot):
 	content = valid.readline()
-	h,t,r = content.strip().split()
+	try:
+		h, t, r = content.strip().split()
+	except:
+		continue
 	if not (h,r) in lef:
 		lef[(h,r)] = []
 	if not (r,t) in rig:
@@ -44,7 +50,10 @@ for i in range(tot):
 tot = (int)(test.readline())
 for i in range(tot):
 	content = test.readline()
-	h,t,r = content.strip().split()
+	try:
+		h, t, r = content.strip().split()
+	except:
+		continue
 	if not (h,r) in lef:
 		lef[(h,r)] = []
 	if not (r,t) in rig:
