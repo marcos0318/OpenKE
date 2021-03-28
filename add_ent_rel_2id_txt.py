@@ -40,7 +40,10 @@ for data_name in data_names:
 
     for line in all_data:
         line_tuple = line.strip().split("\t")
-        print(line_tuple)
+
+        out_line = "  ".join([line_tuple[0], line_tuple[2], line_tuple[1]]) + "\n\r"
+        fout.write(out_line)
+
 
 
 
