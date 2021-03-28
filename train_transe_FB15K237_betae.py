@@ -8,7 +8,7 @@ from openke.data import TrainDataLoader, TestDataLoader
 # dataloader for training
 train_dataloader = TrainDataLoader(
 	in_path = "./data/FB15k-237-betae/",
-	nbatches = 75,
+	nbatches = 25,
 	threads = 8, 
 	sampling_mode = "normal", 
 	bern_flag = 1, 
@@ -36,7 +36,7 @@ model = NegativeSampling(
 )
 
 # train the model
-trainer = Trainer(model = model, data_loader = train_dataloader, train_times = 7000, alpha = 1.0, use_gpu = True)
+trainer = Trainer(model = model, data_loader = train_dataloader, train_times = 15000, alpha = 1.0, use_gpu = True)
 trainer.run()
 transe.save_checkpoint('./checkpoint/transe_batae_fb237.ckpt')
 
