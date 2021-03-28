@@ -29,5 +29,21 @@ for data_name in data_names:
         fout.write(id2ent[i] + "\t" + str(i) + "\n")
 
 
+    # re-format the train.txt/valid.txt/test.txt edges to train2id.txt test2id.txt valid2id.txt
+
+    fin = open(path + "train.txt", "r")
+    fout = open(path + "train2id.txt", "w")
+
+    all_data = fin.readlines()
+    num_data = len(all_data)
+    fout.write(str(num_data) + "\n\r")
+
+    for line in all_data:
+        line_tuple = line.strip().split("\t")
+        print(line_tuple)
+
+
+
+
 
 
