@@ -36,7 +36,7 @@ model = NegativeSampling(
 )
 
 # train the model
-trainer = Trainer(model = model, data_loader = train_dataloader, train_times = 15000, alpha = 1.0, use_gpu = True)
+trainer = Trainer(model = model, data_loader = train_dataloader, train_times = 30000, alpha = 1.0, use_gpu = True)
 trainer.run()
 transe.save_checkpoint('./checkpoint/transe_batae_nell.ckpt')
 
