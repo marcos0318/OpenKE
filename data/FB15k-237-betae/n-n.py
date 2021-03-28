@@ -143,7 +143,10 @@ fn1.write("%d\n"%(sn1))
 fnn.write("%d\n"%(snn))
 for i in range(tot):
 	content = f.readline()
-	h,t,r = content.strip().split()
+	try:
+		h, t, r = content.strip().split()
+	except:
+		continue
 	rign = rellef[r] / totlef[r]
 	lefn = relrig[r] / totrig[r]
 	if (rign < 1.5 and lefn < 1.5):
