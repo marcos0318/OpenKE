@@ -17,7 +17,7 @@ train_dataloader = TrainDataLoader(
 	neg_rel = 0)
 
 # dataloader for test
-test_dataloader = TestDataLoader("./benchmarks/FB15K237/", "link")
+test_dataloader = TestDataLoader("./data/FB15k-237-betae/", "link")
 
 # define the model
 transe = TransE(
@@ -36,7 +36,7 @@ model = NegativeSampling(
 )
 
 # train the model
-trainer = Trainer(model = model, data_loader = train_dataloader, train_times = 1000, alpha = 1.0, use_gpu = True)
+trainer = Trainer(model = model, data_loader = train_dataloader, train_times = 3, alpha = 1.0, use_gpu = True)
 trainer.run()
 transe.save_checkpoint('./checkpoint/transe.ckpt')
 
