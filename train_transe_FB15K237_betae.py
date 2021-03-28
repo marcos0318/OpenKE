@@ -16,7 +16,7 @@ train_dataloader = TrainDataLoader(
 	neg_ent = 25,
 	neg_rel = 0)
 
-dataloader for test
+# dataloader for test
 test_dataloader = TestDataLoader("./data/FB15k-237-betae/", "link")
 
 # define the model
@@ -40,7 +40,7 @@ trainer = Trainer(model = model, data_loader = train_dataloader, train_times = 3
 trainer.run()
 transe.save_checkpoint('./checkpoint/transe.ckpt')
 
-test the model
+# test the model
 transe.load_checkpoint('./checkpoint/transe.ckpt')
 tester = Tester(model = transe, data_loader = test_dataloader, use_gpu = True)
 tester.run_link_prediction(type_constrain = False)
