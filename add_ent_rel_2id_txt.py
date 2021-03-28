@@ -13,7 +13,7 @@ for data_name in data_names:
     fout = open(path + "relation2id.txt", "w")
 
     num_rel = len(id2rel)
-    fout.write(str(num_rel) + "\n")
+    fout.write(str(num_rel) + "\n\r")
     for i in range(num_rel):
         fout.write(id2rel[i] + "\t" + str(i) + "\n")
 
@@ -24,7 +24,7 @@ for data_name in data_names:
     fout = open(path + "entity2id.txt", "w")
 
     num_ent = len(id2ent)
-    fout.write(str(num_ent) + "\n")
+    fout.write(str(num_ent) + "\n\r")
     for i in range(num_ent):
         fout.write(id2ent[i] + "\t" + str(i) + "\n")
 
