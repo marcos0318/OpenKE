@@ -45,6 +45,32 @@ for data_name in data_names:
         fout.write(out_line)
 
 
+    fin = open(path + "valid.txt", "r")
+    fout = open(path + "valid2id.txt", "w")
+
+    all_data = fin.readlines()
+    num_data = len(all_data)
+    fout.write(str(num_data) + "\n\r")
+
+    for line in all_data:
+        line_tuple = line.strip().split("\t")
+
+        out_line = "  ".join([line_tuple[0], line_tuple[2], line_tuple[1]]) + "\n\r"
+        fout.write(out_line)
+
+    fin = open(path + "test.txt", "r")
+    fout = open(path + "test2id.txt", "w")
+
+    all_data = fin.readlines()
+    num_data = len(all_data)
+    fout.write(str(num_data) + "\n\r")
+
+    for line in all_data:
+        line_tuple = line.strip().split("\t")
+
+        out_line = "  ".join([line_tuple[0], line_tuple[2], line_tuple[1]]) + "\n\r"
+        fout.write(out_line)
+
 
 
 
