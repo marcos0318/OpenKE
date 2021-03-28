@@ -112,7 +112,10 @@ f = open("test2id.txt", "r")
 tot = (int)(f.readline())
 for i in range(tot):
 	content = f.readline()
-	h,t,r = content.strip().split()
+	try:
+		h, t, r = content.strip().split()
+	except:
+		continue
 	rign = rellef[r] / totlef[r]
 	lefn = relrig[r] / totrig[r]
 	if (rign < 1.5 and lefn < 1.5):
