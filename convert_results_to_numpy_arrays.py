@@ -35,7 +35,7 @@ for data_path, check_point_path in check_points.items():
         norm_flag=True)
 
     # test the model
-    transe.load_checkpoint('./checkpoint/transe_batae_fb15k.ckpt')
+    transe.load_checkpoint(check_point_path)
 
     print(data_path, "ent")
     print(transe.ent_embeddings)
