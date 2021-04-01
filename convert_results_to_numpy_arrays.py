@@ -39,11 +39,11 @@ for data_path, check_point_path in check_points.items():
 
     print(data_path, "ent")
     print(transe.ent_embeddings)
-    print(transe.ent_embeddings.shape)
+    print(transe.ent_embeddings.weight.shape)
 
     print(data_path, "rel")
     print(transe.rel_embeddings)
-    print(transe.rel_embeddings.shape)
+    print(transe.rel_embeddings.weight.shape)
 
 
 
