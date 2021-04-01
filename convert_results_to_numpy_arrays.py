@@ -4,7 +4,7 @@ from openke.module.model import TransE
 from openke.module.loss import MarginLoss
 from openke.module.strategy import NegativeSampling
 from openke.data import TrainDataLoader, TestDataLoader
-
+import numpy as np
 
 check_points = {
     "./data/FB15k-betae/":  "./checkpoint/transe_batae_fb15k.ckpt",
@@ -37,13 +37,21 @@ for data_path, check_point_path in check_points.items():
     # test the model
     transe.load_checkpoint(check_point_path)
 
+    data_name = check_point_path.split("/")[-1].split(".")[0]
+
     print(data_path, "ent")
     print(transe.ent_embeddings)
     print(transe.ent_embeddings.weight.shape)
 
+    with open(data_name + '_ent.npy', 'wb') as f:
+        np.save(f, transe.ent_embeddings.weight)
+
     print(data_path, "rel")
     print(transe.rel_embeddings)
     print(transe.rel_embeddings.weight.shape)
+
+    with open(data_name + '_rel.npy', 'wb') as f:
+        np.save(f, transe.rel_embeddings.weight)
 
 
 
