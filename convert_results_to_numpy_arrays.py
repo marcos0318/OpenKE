@@ -44,14 +44,14 @@ for data_path, check_point_path in check_points.items():
     print(transe.ent_embeddings.weight.shape)
 
     with open(data_name + '_ent.npy', 'wb') as f:
-        np.save(f, transe.ent_embeddings.weight)
+        np.save(f, transe.ent_embeddings.weight.detach().numpy())
 
     print(data_path, "rel")
     print(transe.rel_embeddings)
     print(transe.rel_embeddings.weight.shape)
 
     with open(data_name + '_rel.npy', 'wb') as f:
-        np.save(f, transe.rel_embeddings.weight)
+        np.save(f, transe.rel_embeddings.weight.detach().numpy())
 
 
 
